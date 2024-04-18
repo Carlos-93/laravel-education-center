@@ -11,7 +11,7 @@
 
 This project involves the development of a comprehensive educational system incorporating a simplified CRM, focused on assisting teachers in efficiently managing, controlling, and communicating with their students, as well as in administering courses and evaluations.
 
-## Prerequisites
+## Previous requirements
 
 Before starting, make sure you meet the following prerequisites:
 - PHP >= 8.0
