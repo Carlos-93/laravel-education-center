@@ -123,6 +123,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 Carlos Araujo Galván
 
 - Email: carlos93.bcn@hotmail.com
-- LinkedIn: Profile
+- LinkedIn: [Profile](https://www.linkedin.com/in/carlos-araujo-galvan)
 
-Project Link: GitHub Repository
+Project Link: [GitHub Repository](https://github.com/Carlos-93/laravel-education-center)
