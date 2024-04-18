@@ -7,6 +7,18 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+# Comprehensive Educational System
+
+This project involves the development of a comprehensive educational system incorporating a simplified CRM, focused on assisting teachers in efficiently managing, controlling, and communicating with their students, as well as in administering courses and evaluations.
+
+## Prerequisites
+
+Before starting, make sure you meet the following prerequisites:
+- PHP >= 8.0
+- Composer
+- NPM (optional, if you work with assets)
+- A compatible database (MySQL, PostgreSQL, etc.)
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
