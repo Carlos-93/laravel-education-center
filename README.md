@@ -11,15 +11,17 @@
 
 This project involves the development of a comprehensive educational system incorporating a simplified CRM, focused on assisting teachers in efficiently managing, controlling, and communicating with their students, as well as in administering courses and evaluations.
 
-## Previous Requirements
+## Prerequisites
 
-Before starting, make sure you meet the following prerequisites:
+Before starting, ensure you meet the following prerequisites:
 - PHP >= 8.0
 - Composer
-- NPM (optional, if you work with assets)
+- NPM (optional, for asset management)
 - A compatible database (MySQL, PostgreSQL, etc.)
 
 ## Installation
+
+Follow these steps to set up the project locally:
 
 1. Clone the repository to your local machine:
     ```bash
@@ -41,21 +43,22 @@ Before starting, make sure you meet the following prerequisites:
     ```bash
     cp .env.example .env
     ```
-    Make sure to set up your database connection details in the `.env` file.
+    
+    Update the database connection details in the `.env` file.
 
-6. Generate an application key:
+7. Generate an application key:
     ```bash
     php artisan key:generate
     ```
-7. Run the migrations and seed the database (optional):
+8. Run the migrations and seed the database (optional):
     ```bash
     php artisan migrate --seed
     ```
-8. Start the local development server:
+9. Start the local development server:
     ```bash
     php artisan serve
     ```
-    You should now be able to access the application at http://localhost:8000.
+    Access the application at http://localhost:8000.
 
 ## About Laravel
 
@@ -119,7 +122,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 Carlos Araujo Galván
 
-- carlos93.bcn@hotmail.com
-- https://www.linkedin.com/in/carlos-araujo-galvan
+- Email: carlos93.bcn@hotmail.com
+- LinkedIn: Profile
 
-Project Link: [https://github.com/Carlos-93/laravel-blog](https://github.com/Carlos-93/laravel-education-center)
+Project Link: GitHub Repository
