@@ -2,9 +2,6 @@
 
 <x-guest-layout>
     <x-authentication-card>
-        <x-slot name="logo">
-
-        </x-slot>
 
         <x-validation-errors class="mb-4" />
 
@@ -14,6 +11,7 @@
             </div>
         @endsession
 
+        <h1 class="text-2xl text-center">SING UP</h1>
         <form method="POST" action="{{ route('login') }}">
             @csrf
 

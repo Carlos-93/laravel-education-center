@@ -62,4 +62,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Método para determinar si un usuario es administrador
+    public function isAdmin(): bool
+    {
+        return $this->role === 'Administrador';
+    }
+
+    // Método para determinar si un usuario es escritor
+    public function isWriter(): bool
+    {
+        return $this->role === 'Escritor';
+    }
 }

@@ -1,13 +1,11 @@
-@section('title', 'Register')
+@section('title', 'Registration')
 
 <x-guest-layout>
+    
     <x-authentication-card>
-        <x-slot name="logo">
-
-        </x-slot>
 
         <x-validation-errors class="mb-4" />
-
+        <h1 class="text-2xl text-center">REGISTRATION</h1>
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
