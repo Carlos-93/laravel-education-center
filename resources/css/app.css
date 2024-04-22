@@ -18,13 +18,11 @@
 .bg-hero-auth {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/public/images/hero.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: top;
 }
 
 .bg-hero-home {
     background-image: url('/public/images/hero.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: top;
 }

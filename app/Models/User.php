@@ -66,12 +66,12 @@ class User extends Authenticatable
     // Método para determinar si un usuario es administrador
     public function isAdmin(): bool
     {
-        return $this->role === 'Administrador';
+        return $this->role === 'admin';
     }
 
-    // Método para determinar si un usuario es escritor
-    public function isWriter(): bool
+    // Método para determinar si un usuario es profesor
+    public function isTeacher(): bool
     {
-        return $this->role === 'Escritor';
+        return $this->role === 'teacher';
     }
 }
