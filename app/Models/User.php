@@ -63,13 +63,16 @@ class User extends Authenticatable
         ];
     }
 
-    // Método para determinar si un usuario es administrador
+    public function roles()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
     public function isAdmin(): bool
     {
         return $this->role === 'admin';
     }
 
-    // Método para determinar si un usuario es profesor
     public function isTeacher(): bool
     {
         return $this->role === 'teacher';
