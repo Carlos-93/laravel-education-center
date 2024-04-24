@@ -24,7 +24,7 @@ textarea {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/public/images/hero.jpg');
     background-position: top;
     background-repeat: no-repeat;
-    background-size: 100vw 80vh;
+    background-size: auto;
     background-attachment: fixed;
 }
 
@@ -32,7 +32,7 @@ textarea {
     background-image: url('/public/images/hero.jpg');
     background-position: top;
     background-repeat: no-repeat;
-    background-size: 100vw 80vh;
+    background-size: auto;
     background-attachment: fixed;
 }
 
@@ -40,6 +40,6 @@ textarea {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/public/images/bg.jpeg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100vw 100vh;
+    background-size: auto;
     background-attachment: fixed;
 }

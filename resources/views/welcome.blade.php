@@ -23,7 +23,8 @@
                 @auth
                     <a href="{{ url('/dashboard') }}"
                         class="flex gap-3 rounded-md px-3 py-2 text-yellow-400 ring-1 ring-transparent transition hover:text-yellow-600 transition-all ease-in-out duration-300">
-                        Continuar como {{ Auth::user()->name }}
+                        CONTINUE AS {{ strtoupper(Auth::user()->name) }}
+
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="icon icon-tabler icon-tabler-square-rounded-arrow-right stroke-current" width="25"
                             viewBox="0 0 24 24" stroke-width="1.5" stroke="#000" fill="none" stroke-linecap="round"
