@@ -34,6 +34,7 @@
 
         <!-- Page Content -->
         <main>
+            @livewire('sidebar')
             {{ $slot }}
         </main>
     </div>
