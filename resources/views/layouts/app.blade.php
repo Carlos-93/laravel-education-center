@@ -20,7 +20,7 @@
 <body class="font-sans antialiased">
     <x-banner />
 
-    <div class="min-h-screen bg-app">
+    <div class="min-h-screen bg-app sm:ml-64">
         @livewire('navigation-menu')
 
         <!-- Page Heading -->
@@ -33,8 +33,8 @@
         @endif
 
         <!-- Page Content -->
+        @livewire('sidebar')
         <main>
-            @livewire('sidebar')
             {{ $slot }}
         </main>
     </div>
