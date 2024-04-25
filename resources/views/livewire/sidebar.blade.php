@@ -11,7 +11,7 @@
             <ul class="flex flex-col pr-10 gap-10">
                 <li>
                     <a href={{ route('dashboard') }}
-                        class="flex items-center gap-3 transform hover:translate-x-2 transition-transform ease-in duration-200 text-white hover:text-yellow-400">
+                        class="flex items-center gap-3 transform hover:translate-x-3 transition-transform ease-in duration-200 text-white hover:text-yellow-400">
                         <span class="inline-flex items-center justify-center text-lg">
                             <i class="bx bx-home text-2xl"></i>
                         </span>
@@ -20,7 +20,7 @@
                 </li>
                 <li>
                     <a href="#"
-                        class="flex items-center gap-3 transform hover:translate-x-2 transition-transform ease-in duration-200 text-white hover:text-yellow-400">
+                        class="flex items-center gap-3 transform hover:translate-x-3 transition-transform ease-in duration-200 text-white hover:text-yellow-400">
                         <span class="inline-flex items-center justify-center">
                             <i class="bx bxs-graduation text-2xl"></i>
                         </span>
@@ -29,7 +29,7 @@
                 </li>
                 <li>
                     <a href="#"
-                        class="flex items-center gap-3 transform hover:translate-x-2 transition-transform ease-in duration-200 text-white hover:text-yellow-400">
+                        class="flex items-center gap-3 transform hover:translate-x-3 transition-transform ease-in duration-200 text-white hover:text-yellow-400">
                         <span class="inline-flex items-center justify-center">
                             <i class='bx bxs-briefcase text-2xl'></i>
                         </span>
@@ -38,7 +38,7 @@
                 </li>
                 <li>
                     <a href="#"
-                        class="flex items-center gap-3 transform hover:translate-x-2 transition-transform ease-in duration-200 text-white hover:text-yellow-400">
+                        class="flex items-center gap-3 transform hover:translate-x-3 transition-transform ease-in duration-200 text-white hover:text-yellow-400">
                         <span class="inline-flex items-center justify-center">
                             <i class="bx bxs-school text-2xl"></i>
                         </span>
@@ -47,7 +47,7 @@
                 </li>
                 <li>
                     <a href="#"
-                        class="flex items-center gap-3 transform hover:translate-x-2 transition-transform ease-in duration-200 text-white hover:text-yellow-400">
+                        class="flex items-center gap-3 transform hover:translate-x-3 transition-transform ease-in duration-200 text-white hover:text-yellow-400">
                         <span class="inline-flex items-center justify-center">
                             <i class="bx bx-stats text-2xl"></i>
                         </span>
@@ -56,7 +56,7 @@
                 </li>
                 <li>
                     <a href="#"
-                        class="flex items-center gap-3 transform hover:translate-x-2 transition-transform ease-in duration-200 text-white hover:text-yellow-400">
+                        class="flex items-center gap-3 transform hover:translate-x-3 transition-transform ease-in duration-200 text-white hover:text-yellow-400">
                         <span class="inline-flex items-center justify-center">
                             <i class="bx bxs-cog text-2xl"></i>
                         </span>
@@ -65,22 +65,25 @@
                 </li>
                 <li>
                     <a href="#"
-                        class="flex items-center gap-3 transform hover:translate-x-2 transition-transform ease-in duration-200 text-white hover:text-yellow-400">
+                        class="flex items-center gap-3 transform hover:translate-x-3 transition-transform ease-in duration-200 text-white hover:text-yellow-400">
                         <span class="inline-flex items-center justify-center">
                             <i class="bx bxs-conversation text-2xl"></i>
                         </span>
                         <span class="text-sm font-bold">Staff Room</span>
                     </a>
                 </li>
-                <li class="flex mt-32">
-                    <a href="#"
-                        class="flex items-center gap-3 transform hover:translate-x-2 transition-transform ease-in duration-200 text-yellow-400 hover:text-yellow-400">
-                        <span class="inline-flex items-center justify-center">
-                            <i class="bx bx-log-out text-2xl"></i>
-                        </span>
-                        <span class="text-sm font-bold">Log Out</span>
-                    </a>
-                </li>
+                <form method="POST" action="{{ route('logout') }}" x-data>
+                    @csrf
+                    <li class="flex mt-32">
+                        <a href="{{ route('logout') }}" @click.prevent="$root.submit();"
+                            class="flex items-center gap-3 transform hover:translate-x-3 transition-transform ease-in duration-200 text-yellow-400 hover:text-yellow-400">
+                            <span class="inline-flex items-center justify-center">
+                                <i class="bx bx-log-out text-2xl"></i>
+                            </span>
+                            <span class="text-sm font-bold">Log Out</span>
+                        </a>
+                    </li>
+                </form>
             </ul>
         </div>
     </aside>
