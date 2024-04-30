@@ -1,10 +1,10 @@
 <nav x-data="{ open: false }">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="mx-auto sm:px-6 lg:px-20">
         <div class="flex justify-between py-10">
             <div class="flex">
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:flex">
                     <h2 class="font-semibold text-3xl text-white leading-tight">
                         {{ __('Dashboard') }} - {{ ucfirst(Auth::user()->role) }}
                     </h2>

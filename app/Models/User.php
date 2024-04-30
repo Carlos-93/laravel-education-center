@@ -63,9 +63,9 @@ class User extends Authenticatable
         ];
     }
 
-    public function roles()
+    public function isStudent(): bool
     {
-        return $this->belongsTo(Role::class);
+        return $this->role === 'student';
     }
 
     public function isAdmin(): bool

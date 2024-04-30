@@ -33,7 +33,6 @@ textarea {
     background-position: top;
     background-repeat: no-repeat;
     background-size: auto;
-    background-attachment: fixed;
 }
 
 .bg-app {
@@ -42,4 +41,8 @@ textarea {
     background-repeat: no-repeat;
     background-size: auto;
     background-attachment: fixed;
+}
+
+.gradient-box:hover {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0));
 }
