@@ -21,14 +21,14 @@ textarea {
 }
 
 .bg-hero-auth {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/public/images/hero.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/public/images/hero-auth.jpg');
     background-position: top;
     background-repeat: no-repeat;
     background-size: auto;
 }
 
 .bg-hero-home {
-    background-image: url('/public/images/hero.jpg');
+    background-image: url('/public/images/hero-home.jpg');
     background-position: top;
     background-repeat: no-repeat;
     background-size: auto;

@@ -1,13 +1,11 @@
-<nav x-data="{ open: false }">
+<nav x-data="{ open: false }" class="sticky top-0 backdrop-blur-xl bg-white/40">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto px-6 lg:px-20">
         <div class="flex justify-between py-10 justify-center items-center">
             <div class="flex">
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:flex">
-                    <h2 class="font-semibold text-3xl text-white leading-tight">
-                        {{ __('Dashboard') }} - {{ ucfirst(Auth::user()->role) }}
-                    </h2>
+                    <h2 class="font-semibold text-3xl text-black leading-tight">@yield('title')</h2>
                 </div>
             </div>
 

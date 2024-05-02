@@ -1,4 +1,4 @@
-@section('title', 'User Management')
+@section('title', 'User Manager')
 
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -9,7 +9,7 @@
 
             <!-- Create user -->
             <div class="mb-6">
-                <button wire:click="$dispatch('openModal', {component: 'create-user'})"
+                <button wire:click="$dispatch('openModal', { component: { component: {component: 'create-user'} } })"
                     class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
                     Add new user
                 </button>
@@ -34,12 +34,12 @@
                                 <td class="px-6 py-4 text-sm text-gray-700">{{ $user->role }}</td>
                                 <td class="px-6 py-4 text-sm">
                                     <button
-                                        wire:click="$dispatch('openModal', {component: 'update-user', arguments: {'user': {{ $user->id }}}})"
+                                        wire:click="$dispatch('openModal', { component: { component: {component: 'update-user', arguments: arguments: arguments: {'user': {{ $user->id }}}} } })"
                                         class="bg-yellow-500 text-white font-semibold py-1 px-3 rounded hover:bg-yellow-600">
                                         Edit
                                     </button>
                                     <button
-                                        wire:click="$dispatch('openModal', {component: 'delete-user', arguments: {'user': {{ $user->id }}}})"
+                                        wire:click="$dispatch('openModal', { component: { component: {component: 'delete-user', arguments: arguments: arguments: {'user': {{ $user->id }}}} } })"
                                         class="bg-red-500 text-white font-semibold py-1 px-3 rounded hover:bg-red-600">
                                         Delete
                                     </button>
