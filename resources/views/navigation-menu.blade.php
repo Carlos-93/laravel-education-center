@@ -1,7 +1,7 @@
 <nav x-data="{ open: false }">
     <!-- Primary Navigation Menu -->
-    <div class="mx-auto sm:px-6 lg:px-20">
-        <div class="flex justify-between py-10">
+    <div class="mx-auto px-6 lg:px-20">
+        <div class="flex justify-between py-10 justify-center items-center">
             <div class="flex">
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:flex">
@@ -77,21 +77,24 @@
                                         src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                 </button>
                             @else
-                                <span class="inline-flex flex-col rounded-md">
-                                    <button type="button"
-                                        class="inline-flex flex-col text-start px-3 py-2 border border-transparent leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
-                                        <p class="mb-1 font-bold text-black">{{ Auth::user()->name }} ({{ ucfirst(Auth::user()->role) }})</p>
-                                        <div class="inline-flex items-center">
-                                            <p class="text-sm">{{ Auth::user()->email }}</p>
-                                            <svg class="ms-2 -me-0.5 h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                                stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                            </svg>
-                                        </div>
-                                    </button>
-                                </span>
+                                <button type="button"
+                                    class="inline-flex gap-4 justify-center items-center text-start px-2 py-2 border border-transparent rounded-md bg-white">
+                                    <picture>
+                                        <source srcset="{{ asset('images/user.jpg') }}" type="image/png">
+                                        <img src="{{ asset('images/avatar.png') }}" alt="{{ Auth::user()->name }}"
+                                            class="w-14 rounded-full object-cover">
+                                    </picture>
+                                    <div class="flex flex-col">
+                                        <p class="font-bold text-black">{{ Auth::user()->name }}
+                                            ({{ ucfirst(Auth::user()->role) }})</p>
+                                        <p class="text-sm text-gray-500">{{ Auth::user()->email }}</p>
+                                    </div>
+                                    <svg class="h-5 w-5 mt-6 text-black" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                    </svg>
+                                </button>
                             @endif
                         </x-slot>
 
@@ -129,8 +132,8 @@
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
                 <button @click="open = ! open"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 text-white transition duration-200 ease-in-out">
+                    <svg class="h-11 w-11" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex"
                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
@@ -147,6 +150,34 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="{{ route('course-management') }}" :active="request()->routeIs('course-management')">
+                {{ __('Courses') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link>
+                {{ __('Calendar') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link>
+                {{ __('Grades') }}
+            </x-responsive-nav-link>
+
+            @if (auth()->user()->isAdmin() || auth()->user()->isTeacher())
+                <x-responsive-nav-link>
+                    {{ __('Staff Room') }}
+                </x-responsive-nav-link>
+            @endif
+
+            @if (auth()->user()->isAdmin())
+                <x-responsive-nav-link href="{{ route('user-management') }}" :active="request()->routeIs('user-management')">
+                    {{ __('User Manager') }}
+                </x-responsive-nav-link>
+            @endif
+
+            <x-responsive-nav-link>
+                {{ __('Settings') }}
             </x-responsive-nav-link>
         </div>
 

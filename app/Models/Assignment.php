@@ -4,13 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use PhpParser\Node\Expr\Assign;
 
-class Assignment extends Model
+class Assigment extends Model
 {
     use HasFactory;
 
-    public function course()
+    public function courses()
     {
         return $this->belongsTo(Course::class);
     }

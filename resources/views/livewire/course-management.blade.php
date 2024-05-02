@@ -1,3 +1,5 @@
+@section('title', 'Courses')
+
 <div>
     <form wire:submit.prevent="saveCourse">
         <input type="text" wire:model="title" placeholder="Title for the course">

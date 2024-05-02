@@ -20,7 +20,7 @@
 <body class="font-sans antialiased">
     <x-banner />
 
-    <div class="min-h-screen bg-app sm:ml-64">
+    <div class="bg-app min-h-screen sm:ml-64">
         @livewire('navigation-menu')
 
         <!-- Page Heading -->
@@ -33,7 +33,7 @@
         @endif
 
         <!-- Page Content -->
-        @livewire('sidebar')
+        @livewire('sidebar-navigation')
         <main>
             {{ $slot }}
         </main>
@@ -41,6 +41,7 @@
 
     @stack('modals')
 
+    @livewire('wire-elements-modal')
     @livewireScripts
 </body>
 

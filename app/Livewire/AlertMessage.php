@@ -4,10 +4,10 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class Sidebar extends Component
+class AlertMessage extends Component
 {
     public function render()
     {
-        return view('livewire.sidebar');
+        return view('livewire.alert-message');
     }
 }
