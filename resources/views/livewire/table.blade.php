@@ -3,27 +3,27 @@
         <thead class="bg-blue-100">
             <tr>
                 <th scope="col"
-                    class="px-6 py-3 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider">Name</th>
+                    class="px-6 py-3 text-center text-sm font-semibold text-blue-800 uppercase tracking-wider">Name</th>
                 <th scope="col"
-                    class="px-6 py-3 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider">Email</th>
+                    class="px-6 py-3 text-center text-sm font-semibold text-blue-800 uppercase tracking-wider">Email</th>
                 <th scope="col"
-                    class="px-6 py-3 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider">Role</th>
+                    class="px-6 py-3 text-center text-sm font-semibold text-blue-800 uppercase tracking-wider">Role</th>
                 <th scope="col"
-                    class="px-6 py-3 text-left text-sm font-semibold text-blue-800 uppercase tracking-wider">Actions
+                    class="px-6 py-3 text-center text-sm font-semibold text-blue-800 uppercase tracking-wider">Actions
                 </th>
             </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
             @foreach ($users as $user)
                 <tr class="hover:bg-yellow-100 transition-colors">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $user['name'] }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $user['email'] }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $user['role'] }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-semibold">{{ $user['name'] }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm">{{ $user['email'] }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm">{{ $user['role'] }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex gap-3">
+                        <div class="flex gap-3 justify-center items-center">
                             <button
                                 wire:click="$dispatch('openModal', {component: 'update-user', arguments: {'user': {{ $user->id }}}})"
-                                class="bg-yellow-500 text-white font-semibold px-4 py-2 rounded hover:bg-yellow-600 transition-colors flex items-center justify-center gap-2">
+                                class="bg-yellow-500 text-white font-semibold px-4 py-2 rounded hover:bg-yellow-600 transition-colors gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
@@ -36,7 +36,7 @@
                             </button>
                             <button
                                 wire:click="$dispatch('openModal', {component: 'delete-user', arguments: {'user': {{ $user->id }}}})"
-                                class="bg-red-500 text-white font-semibold px-4 py-2 rounded hover:bg-red-600 transition-colors flex items-center justify-center gap-2">
+                                class="bg-red-500 text-white font-semibold px-4 py-2 rounded hover:bg-red-600 transition-colors gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"

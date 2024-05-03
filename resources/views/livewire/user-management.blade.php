@@ -3,14 +3,15 @@
 <div class="py-12">
     <div class="mx-auto sm:px-6 lg:px-20">
         <div class="flex flex-col gap-5 overflow-hidden">
-            @if (session('message'))
-                @livewire('alert-message')
-            @endif
+
 
             <!-- Create user -->
             <div class="flex justify-end w-full">
+                @if (session('message'))
+                    @livewire('alert-message')
+                @endif
                 <x-button-add wire:click="$dispatch('openModal', {component: 'create-user'})">
-                    Add New User
+                    Create User
                 </x-button-add>
             </div>
 
