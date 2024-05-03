@@ -9,7 +9,7 @@ class Course extends Model
 {
     use HasFactory;
 
-    public function teachers()
+    public function teacher()
     {
         return $this->belongsTo(User::class, 'teacher_id');
     }
