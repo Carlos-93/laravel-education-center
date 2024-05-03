@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use LivewireUI\Modal\ModalComponent;
 
 class CreateUser extends ModalComponent
@@ -28,7 +29,7 @@ class CreateUser extends ModalComponent
             'name' => $this->name,
             'email' => $this->email,
             'role' => $this->selectedRole,
-            'password' => bcrypt('password')
+            'password' => Hash::make($this->password)
         ]);
 
         session()->flash('message', 'User created successfully.');
