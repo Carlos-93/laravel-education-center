@@ -22,6 +22,7 @@ class CreateUser extends ModalComponent
         $this->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8',
             'selectedRole' => 'required'
         ]);
 
@@ -32,7 +33,7 @@ class CreateUser extends ModalComponent
             'password' => Hash::make($this->password)
         ]);
 
-        session()->flash('message', 'User created successfully.');
+        session()->flash('message', 'User created successfully');
         return redirect()->route('user-management');
     }
 

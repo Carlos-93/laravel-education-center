@@ -46,7 +46,7 @@ class UpdateUser extends ModalComponent
             ]);
         }
 
-        session()->flash('message', 'User updated successfully.');
+        session()->flash('message', 'User updated successfully');
         return redirect()->route('user-management');
     }
 

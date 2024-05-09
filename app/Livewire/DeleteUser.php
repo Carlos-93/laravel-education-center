@@ -18,7 +18,7 @@ class DeleteUser extends ModalComponent
     {
         $this->user->delete();
         $this->closeModal();
-        session()->flash('message', 'User deleted successfully.');
+        session()->flash('message', 'User deleted successfully');
         return redirect()->route('user-management');
     }
 

@@ -48,3 +48,12 @@ textarea {
 .gradient-box:hover {
     background: linear-gradient(to right, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0));
 }
+
+@keyframes opacity {
+    0%, 100% {
+        opacity: 0;
+    }
+    20%, 80% {
+        opacity: 1;
+    }
+}

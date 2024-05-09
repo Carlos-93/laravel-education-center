@@ -24,7 +24,7 @@
                             <button
                                 wire:click="$dispatch('openModal', {component: 'update-user', arguments: {'user': {{ $user->id }}}})"
                                 class="bg-yellow-500 text-white font-semibold px-4 py-2 rounded hover:bg-yellow-600 transition-colors gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
                                     class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
@@ -37,7 +37,7 @@
                             <button
                                 wire:click="$dispatch('openModal', {component: 'delete-user', arguments: {'user': {{ $user->id }}}})"
                                 class="bg-red-500 text-white font-semibold px-4 py-2 rounded hover:bg-red-600 transition-colors gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
                                     class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
