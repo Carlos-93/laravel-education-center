@@ -6,6 +6,7 @@
 
             <!-- Create user -->
             <div class="flex justify-between w-full">
+                <!-- Search input -->
                 <input type="search" wire:model="search" placeholder="Search users..."
                     class="w-1/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
 

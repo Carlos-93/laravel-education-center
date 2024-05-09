@@ -9,7 +9,7 @@ use LivewireUI\Modal\ModalComponent;
 
 class CreateUser extends ModalComponent
 {
-    public $name, $email, $password;
+    public $name, $email, $password, $password_confirmation;
     public $roles, $selectedRole;
 
     public function mount()
@@ -23,6 +23,7 @@ class CreateUser extends ModalComponent
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8',
+            'password_confirmation' => 'required|same:password',
             'selectedRole' => 'required'
         ]);
 

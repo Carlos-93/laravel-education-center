@@ -29,22 +29,20 @@ class UpdateUser extends ModalComponent
             'email' => ['required', 'email', Rule::unique('users')->ignore($this->user->id)],
             'selectedRole' => 'required',
             'password' => 'nullable|min:6|same:password_confirmation',
+            'password_confirmation' => 'nullable|same:password'
         ]);
 
+        $data = [
+            'name' => $this->name,
+            'email' => $this->email,
+            'role' => $this->selectedRole
+        ];
+
         if ($this->password) {
-            User::where('id', $this->user->id)->update([
-                'name' => $this->name,
-                'email' => $this->email,
-                'role' => $this->selectedRole,
-                'password' => bcrypt($this->password)
-            ]);
-        } else {
-            User::where('id', $this->user->id)->update([
-                'name' => $this->name,
-                'email' => $this->email,
-                'role' => $this->selectedRole,
-            ]);
+            $data['password'] = bcrypt($this->password);
         }
+
+        User::where('id', $this->user->id)->update($data);
 
         session()->flash('message', 'User updated successfully');
         return redirect()->route('user-management');
