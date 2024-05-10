@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Admin',
             'role' => 'admin',
-            'email' => 'admin@gmail.com',
+            'email' => 'admin@monlau.com',
             'password' => Hash::make('admin123'),
             'created_at' => now(),
             'updated_at' => now()
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
     private function createTeacher(): void
     {
         $teacher = [
-            'Ramón Aguilar Pere',
+            'Ramón Aguilar',
             'Amador Diaz',
             'Josep Maria Herrera',
             'Roberto Manca',

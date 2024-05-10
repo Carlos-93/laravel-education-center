@@ -1,5 +1,5 @@
 <div
-    class="fixed z-50 top-5 left-1/2 transform -translate-x-1/2 m-auto animate-[opacity_5s_ease-in-out] opacity-0 bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md">
+    class="fixed top-5 left-1/2 transform -translate-x-1/2 m-auto animate-[opacity_5s_ease-in-out] opacity-0 bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md">
     <div class="flex">
         <div>
             <svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

@@ -20,7 +20,8 @@
 <body class="font-sans antialiased">
     <x-banner />
 
-    <div class="bg-app min-h-screen sm:ml-64">
+    <div :class="{ 'sm:ml-[16rem]': !close, 'left-0': close }"
+        class="bg-app min-h-screen sm:ml-[16rem] transition-all ease-in-out duration-300">
         @livewire('navigation-menu')
 
         <!-- Page Content -->
