@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -14,103 +13,93 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->createAdmin();
+        $this->createTeacher();
+        $this->createStudent();
+    }
+
+    private function createAdmin(): void
+    {
         DB::table('users')->insert([
-            'name' => 'Carlos Araujo',
+            'name' => 'Admin',
             'role' => 'admin',
-            'email' => 'carlos@monlau.com',
+            'email' => 'admin@gmail.com',
             'password' => Hash::make('admin123'),
             'created_at' => now(),
             'updated_at' => now()
         ]);
+    }
 
-        DB::table('users')->insert([
-            'name' => 'Roberto Manca',
-            'role' => 'teacher',
-            'email' => 'roberto@monlau.com',
-            'password' => Hash::make('teacher123'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+    private function createTeacher(): void
+    {
+        $teacher = [
+            'Ramón Aguilar Pere',
+            'Amador Diaz',
+            'Josep Maria Herrera',
+            'Roberto Manca',
+            'Javier Salvador',
+            'Adrià Serrando',
+            'Carmen Quintás',
+            'Judith Lopez',
+            'Marta Sánchez',
+            'Jordi Sánchez',
+        ];
 
-        DB::table('users')->insert([
-            'name' => 'Javier Salvador',
-            'role' => 'teacher',
-            'email' => 'javier@monlau.com',
-            'password' => Hash::make('teacher123'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        $teachers = [];
+        foreach ($teacher as $teacher) {
+            $teachers[] = [
+                'name' => $teacher,
+                'role' => 'teacher',
+                'email' => strtolower(str_replace(' ', '', $teacher)) . '@monlau.com',
+                'password' => Hash::make('teacher123'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
 
-        DB::table('users')->insert([
-            'name' => 'Carmen Quintás',
-            'role' => 'teacher',
-            'email' => 'carmen@monlau.com',
-            'password' => Hash::make('teacher123'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        DB::table('users')->insert($teachers);
+    }
 
-        DB::table('users')->insert([
-            'name' => 'Josep Maria',
-            'role' => 'teacher',
-            'email' => 'josepmaria@monlau.com',
-            'password' => Hash::make('teacher123'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+    private function createStudent(): void
+    {
+        $student = [
+            'Lucas Romero',
+            'Martina García',
+            'Mateo Torres',
+            'Sofía Martínez',
+            'Diego Sánchez',
+            'Valeria López',
+            'Hugo Fernández',
+            'Daniela Rodríguez',
+            'Liam Ramírez',
+            'Alba Hernández',
+            'Álvaro Díaz',
+            'Isabella Cruz',
+            'Pablo Pérez',
+            'Sara Ortiz',
+            'Leo Jiménez',
+            'Noa Navarro',
+            'Enzo Ramos',
+            'Julia Gutiérrez',
+            'Oliver Gómez',
+            'Emma Morales',
+            'Thiago Herrera',
+            'Mía Ruiz',
+            'Manuel Méndez'
+        ];
 
-        DB::table('users')->insert([
-            'name' => 'Adria Serrano',
-            'role' => 'teacher',
-            'email' => 'adria@monlau.com',
-            'password' => Hash::make('teacher123'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        $students = [];
+        foreach ($student as $student) {
+            $students[] = [
+                'name' => $student,
+                'role' => 'student',
+                'email' => strtolower(str_replace(' ', '', $student)) . '@monlau.com',
+                'password' => Hash::make('student123'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
 
-        DB::table('users')->insert([
-            'name' => 'Josep Miquel',
-            'role' => 'student',
-            'email' => 'josep@monlau.com',
-            'password' => Hash::make('student123'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'Albert Soriano',
-            'role' => 'student',
-            'email' => 'albert@monlau.com',
-            'password' => Hash::make('student123'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'Carles Sanchez',
-            'role' => 'student',
-            'email' => 'carles@monlau.com',
-            'password' => Hash::make('student123'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'Marc Marquès',
-            'role' => 'student',
-            'email' => 'marc@monlau.com',
-            'password' => Hash::make('student123'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'Ruben Sanz',
-            'role' => 'student',
-            'email' => 'ruben@monlau.com',
-            'password' => Hash::make('student123'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        DB::table('users')->insert($students);
     }
 }

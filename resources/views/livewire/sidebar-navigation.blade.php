@@ -18,8 +18,8 @@
                             <span>Dashboard</span>
                         </li>
                     </a>
-                    <a href="{{ route('course-management') }}"
-                        class="{{ request()->routeIs('course-management') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
+                    <a href="{{ route('dashboard') }}"
+                        class="{{ request()->routeIs('dashboard') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
                         <li class="py-3 flex items-start gap-2">
                             <span>
                                 <i class='bx bxs-graduation text-2xl'></i>
@@ -28,7 +28,7 @@
                         </li>
                     </a>
                     <a href="#"
-                        class="{{ request()->routeIs('course-management') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
+                        class="{{ request()->routeIs('dashboard') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
                         <li class="py-3 flex items-center gap-2">
                             <span>
                                 <i class="bx bxs-calendar text-2xl"></i>
@@ -37,7 +37,7 @@
                         </li>
                     </a>
                     <a href="#"
-                        class="{{ request()->routeIs('course-management') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
+                        class="{{ request()->routeIs('dashboard') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
                         <li class="py-3 flex items-start gap-2">
                             <span>
                                 <i class="bx bx-edit text-2xl"></i>
@@ -47,7 +47,7 @@
                     </a>
                     @if (auth()->user()->isAdmin() || auth()->user()->isTeacher())
                         <a href="#"
-                            class="{{ request()->routeIs('course-management') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
+                            class="{{ request()->routeIs('dashboard') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
                             <li class="py-3 flex items-start gap-2">
                                 <span>
                                     <i class="bx bxs-conversation text-2xl"></i>
@@ -72,7 +72,7 @@
 
                 <ul class="flex flex-col gap-4 justify-center items-start">
                     <a href="#"
-                        class="{{ request()->routeIs('course-management') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
+                        class="{{ request()->routeIs('dashboard') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
                         <li class="py-3 flex items-start gap-2">
                             <span>
                                 <i class="bx bxs-cog text-2xl"></i>

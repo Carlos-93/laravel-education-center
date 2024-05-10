@@ -150,7 +150,7 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link href="{{ route('course-management') }}" :active="request()->routeIs('course-management')">
+            <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Courses') }}
             </x-responsive-nav-link>
 
