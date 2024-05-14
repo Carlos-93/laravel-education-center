@@ -13,6 +13,7 @@
                     <i class='bx bxs-graduation text-2xl'></i>
                 </x-button-add>
             </div>
+
             @if ($isModalOpen)
                 <div class="p-6">
                     <form
@@ -54,12 +55,19 @@
                     </form>
                 </div>
             @endif
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 @foreach ($allCourses as $course)
                     <div class="relative">
                         <a href="{{ route('courses.course-details', ['courseId' => $course->id]) }}"
                             title="{{ $course->title }}">
-                            <div class="bg-white rounded-lg shadow-lg p-6">
+                            <div class="bg-white rounded-lg p-6">
+                                @if ($course->image)
+                                    <div class="flex justify-center items-center mb-5">
+                                        <img src="{{ asset($course->image) }}" alt="{{ $course->title }}"
+                                            class="w-46 h-40 rounded-xl">
+                                    </div>
+                                @endif
                                 <h2 class="text-xl font-semibold mb-2 truncate">{{ $course->title }}</h2>
                                 <p class="text-gray-600 truncate" title="{{ $course->description }}">
                                     {{ $course->description }}</p>
@@ -104,6 +112,7 @@
                     </div>
                 @endforeach
             </div>
+
             <!-- Courses Student -->
         @else
             <h2 class="text-xl font-semibold">Enrolled Courses</h2>
