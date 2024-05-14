@@ -1,7 +1,7 @@
 <aside>
     <nav :class="{ 'sm:left-0': !close, 'sm:left-[-16rem]': close }"
-        class="sm:flex sm:flex-col sm:items-center py-10 h-full w-[16rem] fixed top-0 left-[-16rem] sm:left-0 bg-[#003664] transition-all ease-in-out duration-300">
-        <div class="flex items-center justify-center mb-10">
+        class="sm:flex sm:flex-col sm:items-center py-5 h-full w-[16rem] fixed top-0 left-[-16rem] sm:left-0 bg-[#003664] transition-all ease-in-out duration-300">
+        <div class="flex items-center justify-center mb-5">
             <a href="{{ route('dashboard') }}">
                 <img src="/images/logo.png" alt="Logo Tech-Play Education" class="w-52">
             </a>
@@ -78,7 +78,7 @@
                 @endif
             </ul>
 
-            <ul class="flex flex-col gap-4 justify-center items-start">
+            <ul class="flex flex-col justify-center items-start">
                 <a href="{{ route('profile.show') }}"
                     class="{{ request()->routeIs('profile.show') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
                     <li class="py-3 flex items-center gap-2">
