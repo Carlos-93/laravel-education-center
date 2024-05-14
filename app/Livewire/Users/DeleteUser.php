@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Users;
 
 use LivewireUI\Modal\ModalComponent;
 use App\Models\User;
@@ -21,9 +21,8 @@ class DeleteUser extends ModalComponent
         session()->flash('message', 'User deleted successfully');
         return redirect()->route('user-management');
     }
-
     public function render()
     {
-        return view('livewire.delete-user');
+        return view('livewire.users.delete-user');
     }
 }

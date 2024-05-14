@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Users;
 
 use App\Models\Role;
 use App\Models\User;
@@ -50,6 +50,6 @@ class UpdateUser extends ModalComponent
 
     public function render()
     {
-        return view('livewire.update-user');
+        return view('livewire.users.update-user');
     }
 }

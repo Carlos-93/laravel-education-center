@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Courses;
 
 use App\Models\Course;
 use App\Models\CourseEnrollment;
@@ -139,6 +139,6 @@ class Courses extends Component
 
     public function render()
     {
-        return view('livewire.courses');
+        return view('livewire.courses.courses');
     }
 }

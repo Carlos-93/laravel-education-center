@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Users;
 
 use App\Models\Role;
 use App\Models\User;
@@ -40,6 +40,6 @@ class CreateUser extends ModalComponent
 
     public function render()
     {
-        return view('livewire.create-user');
+        return view('livewire.users.create-user');
     }
 }

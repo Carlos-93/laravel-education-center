@@ -2,15 +2,11 @@
     <table class="min-w-full divide-y divide-gray-300 border border-gray-300 rounded-lg">
         <thead class="bg-blue-100">
             <tr>
-                <th scope="col"
-                    class="px-6 py-3 text-center text-sm font-semibold text-blue-800 uppercase tracking-wider">Name</th>
-                <th scope="col"
-                    class="px-6 py-3 text-center text-sm font-semibold text-blue-800 uppercase tracking-wider">Email</th>
-                <th scope="col"
-                    class="px-6 py-3 text-center text-sm font-semibold text-blue-800 uppercase tracking-wider">Role</th>
-                <th scope="col"
-                    class="px-6 py-3 text-center text-sm font-semibold text-blue-800 uppercase tracking-wider">Actions
-                </th>
+                <th scope="col" class="px-6 py-3 text-center text-sm font-semibold text-blue-800 uppercase tracking-wider">Name</th>
+                <th scope="col" class="px-6 py-3 text-center text-sm font-semibold text-blue-800 uppercase tracking-wider">Email</th>
+                <th scope="col" class="px-6 py-3 text-center text-sm font-semibold text-blue-800 uppercase tracking-wider">Role</th>
+                <th scope="col" class="px-6 py-3 text-center text-sm font-semibold text-blue-800 uppercase tracking-wider">Last Connection</th>
+                <th scope="col" class="px-6 py-3 text-center text-sm font-semibold text-blue-800 uppercase tracking-wider">Actions</th>
             </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
@@ -19,10 +15,11 @@
                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-semibold">{{ $user['name'] }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm">{{ $user['email'] }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm">{{ $user['role'] }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $user['lastt_connection'] }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex gap-3 justify-center items-center">
                             <button
-                                wire:click="$dispatch('openModal', {component: 'update-user', arguments: {'user': {{ $user->id }}}})"
+                                wire:click="$dispatch('openModal', {component: 'users.update-user', arguments: {'user': {{ $user->id }}}})"
                                 class="bg-yellow-500 text-white font-semibold px-4 py-2 rounded hover:bg-yellow-600 transition-colors gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -35,7 +32,7 @@
                                 </svg>
                             </button>
                             <button
-                                wire:click="$dispatch('openModal', {component: 'delete-user', arguments: {'user': {{ $user->id }}}})"
+                                wire:click="$dispatch('openModal', {component: 'users.delete-user', arguments: {'user': {{ $user->id }}}})"
                                 class="bg-red-500 text-white font-semibold px-4 py-2 rounded hover:bg-red-600 transition-colors gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"

@@ -14,13 +14,9 @@ class Resources extends Model
         'course_id',
         'title',
         'resource_type',
-        'url',
+        'file',
         'content',
         'uploaded_by',
+        'url'
     ];
-
-    public function course()
-    {
-        return $this->belongsTo(Courses::class);
-    }
 }

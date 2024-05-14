@@ -1,9 +1,9 @@
 <?php
 
-use App\Livewire\CourseDetails;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\UserManagement;
-use App\Livewire\Courses;
+use App\Livewire\Users\UserManagement as UserManagement;
+use App\Livewire\Courses\Courses as Courses;
+use App\Livewire\Courses\CourseDetails as CourseDetails;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,16 +23,19 @@ Route::middleware([
     Route::get('/courses', Courses::class)->name('courses');
 
     // Course Details
-    Route::get('/courses/{courseId}', CourseDetails::class)->name('course-details');
+    Route::get('/courses/{courseId}', CourseDetails::class)->name('courses.course-details');
 
-    // Tech-Play Education Games
-    Route::get('/tech-play-education-games')->name('tech-play-education-games');
+    // Games
+    Route::get('/games')->name('games');
 
     // Calendar
     Route::get('/calendar')->name('calendar');
 
     // Grades
     Route::get('/grades')->name('grades');
+
+    // Messages Staff Room
+    Route::get('/staff-room')->name('staff-room');
 
     // User Management
     Route::get('/user-management', UserManagement::class)->name('user-management');
