@@ -9,7 +9,8 @@
         @if (Auth::user()->isTeacher() || Auth::user()->isAdmin())
             <div class="flex justify-end gap-4">
                 <x-button-add wire:click="create">
-                    Add Course
+                    <span>Add Courses</span>
+                    <i class='bx bxs-graduation text-2xl'></i>
                 </x-button-add>
             </div>
             @if ($isModalOpen)

@@ -11,55 +11,43 @@
                 <a href="{{ route('dashboard') }}"
                     class="{{ request()->routeIs('dashboard') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
                     <li class="py-3 flex items-center gap-2">
-                        <span>
-                            <i class="bx bx-home text-2xl"></i>
-                        </span>
+                        <i class="bx bx-home text-2xl"></i>
                         <span>Dashboard</span>
                     </li>
                 </a>
                 <a href="{{ route('courses') }}"
                     class="{{ request()->routeIs('courses') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
                     <li class="py-3 flex items-center gap-2">
-                        <span>
-                            <i class='bx bxs-graduation text-2xl'></i>
-                        </span>
+                        <i class='bx bxs-graduation text-2xl'></i>
                         <span>Courses</span>
                     </li>
                 </a>
                 <a href="{{ route('games') }}"
                     class="{{ request()->routeIs('games') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
                     <li class="py-3 flex items-center gap-2">
-                        <span>
-                            <i class='bx bx-game text-2xl'></i>
-                        </span>
+                        <i class='bx bx-game text-2xl'></i>
                         <span>Games</span>
                     </li>
                 </a>
                 <a href="{{ route('calendar') }}"
                     class="{{ request()->routeIs('calendar') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
                     <li class="py-3 flex items-center gap-2">
-                        <span>
-                            <i class="bx bxs-calendar text-2xl"></i>
-                        </span>
+                        <i class="bx bxs-calendar text-2xl"></i>
                         <span>Calendar</span>
                     </li>
                 </a>
                 <a href="{{ route('grades') }}"
                     class="{{ request()->routeIs('grades') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
                     <li class="py-3 flex items-center gap-2">
-                        <span>
-                            <i class="bx bx-edit text-2xl"></i>
-                        </span>
+                        <i class="bx bx-edit text-2xl"></i>
                         <span>Grades</span>
                     </li>
                 </a>
                 @if (auth()->user()->isAdmin() || auth()->user()->isTeacher())
-                <a href="{{ route('staff-room') }}"
+                    <a href="{{ route('staff-room') }}"
                         class="{{ request()->routeIs('staff-room') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
                         <li class="py-3 flex items-center gap-2">
-                            <span>
-                                <i class="bx bxs-conversation text-2xl"></i>
-                            </span>
+                            <i class="bx bxs-conversation text-2xl"></i>
                             <span>Staff Room</span>
                         </li>
                     </a>
@@ -69,9 +57,7 @@
                     <a href="{{ route('user-management') }}"
                         class="{{ request()->routeIs('user-management') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
                         <li class="py-3 flex items-center gap-2">
-                            <span>
-                                <i class="bx bxs-user-detail text-2xl"></i>
-                            </span>
+                            <i class="bx bxs-user-detail text-2xl"></i>
                             <span>User Manager</span>
                         </li>
                     </a>
@@ -82,9 +68,7 @@
                 <a href="{{ route('profile.show') }}"
                     class="{{ request()->routeIs('profile.show') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
                     <li class="py-3 flex items-center gap-2">
-                        <span>
-                            <i class="bx bxs-cog text-2xl"></i>
-                        </span>
+                        <i class="bx bxs-cog text-2xl"></i>
                         <span>Settings</span>
                     </li>
                 </a>
@@ -93,9 +77,7 @@
                     <a href="{{ route('logout') }}" @click.prevent="$root.submit();" class="w-full">
                         <li class="py-3 flex items-center gap-2">
                             @csrf
-                            <span>
-                                <i class="bx bx-log-out text-2xl"></i>
-                            </span>
+                            <i class="bx bx-log-out text-2xl"></i>
                             <span>Log Out</span>
                         </li>
                     </a>

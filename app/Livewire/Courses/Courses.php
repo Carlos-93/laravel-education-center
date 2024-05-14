@@ -9,13 +9,8 @@ use Livewire\Component;
 
 class Courses extends Component
 {
-    // Courses
     public $allCourses, $enrolledCourses, $notEnrolledCourses;
-
-    // Teachers
     public $allTeachers;
-
-    // Modal
     public $courseId, $title, $description, $teachers = [];
     public $isModalOpen = false;
     public $isUpdating = false;
@@ -25,7 +20,6 @@ class Courses extends Component
         $this->allCourses = Course::all();
         $this->allTeachers = User::where('role', 'teacher')->get();
 
-        // Get the course ids that the user is enrolled in
         $enrolledCourseIds = CourseEnrollment::where('user_id', auth()->user()->id)->pluck('course_id');
 
         $this->enrolledCourses = $this->allCourses->whereIn('id', $enrolledCourseIds);

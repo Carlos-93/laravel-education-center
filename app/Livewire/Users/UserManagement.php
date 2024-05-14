@@ -2,8 +2,8 @@
 
 namespace App\Livewire\Users;
 
-use Livewire\Component;
 use App\Models\User;
+use Livewire\Component;
 
 class UserManagement extends Component
 {
