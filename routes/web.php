@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Users\UserManagement as UserManagement;
-use App\Livewire\Courses\Courses as Courses;
-use App\Livewire\Courses\CourseDetails as CourseDetails;
+use App\Livewire\Users\UserManagement;
+use App\Livewire\Courses\Courses;
+use App\Livewire\Courses\CourseDetails;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,6 +14,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+    
     // Dashboard
     Route::get('/dashboard', function () {
         return view('dashboard');

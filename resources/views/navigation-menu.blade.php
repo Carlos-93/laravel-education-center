@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:flex">
-                    <h1 class="text-2xl font-bold">@yield('title')</h1>
+                    <h1 class="text-3xl font-bold">@yield('title')</h1>
                 </div>
             </div>
 

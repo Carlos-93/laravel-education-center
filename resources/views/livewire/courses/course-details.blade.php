@@ -38,15 +38,15 @@
                                     <div class="flex items-center gap-4">
                                         @switch($resource->resource_type)
                                             @case('ppt')
-                                                <img src="{{ asset('assets/img/IconPPT.svg') }}" alt="PPT icon">
+                                                <img src="{{ asset('icons/IconPPT.svg') }}" alt="PPT icon">
                                             @break
 
                                             @case('pdf')
-                                                <img src="{{ asset('assets/img/IconPDF.svg') }}" alt="PDF icon">
+                                                <img src="{{ asset('icons/IconPDF.svg') }}" alt="PDF icon">
                                             @break
 
                                             @default
-                                                <img src="{{ asset('assets/img/IconPDF.svg') }}" alt="PDF icon">
+                                                <img src="{{ asset('icons/IconPDF.svg') }}" alt="PDF icon">
                                         @endswitch
                                         <p>{{ $resource->title }}</p>
                                     </div>

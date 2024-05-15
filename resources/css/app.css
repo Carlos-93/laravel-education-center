@@ -49,11 +49,28 @@ textarea {
     background: linear-gradient(to right, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0));
 }
 
+.hover-zoom {
+    transition: transform 0.5s ease-in-out;
+}
+
+.hover-container:hover .hover-zoom {
+    transform: scale(1.2);
+    transition: transform 0.5s ease-in-out;
+}
+
+.hover-container .hover-zoom {
+    transition: transform 0.5s ease-in-out;
+}
+
 @keyframes opacity {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0;
     }
-    20%, 80% {
+
+    20%,
+    80% {
         opacity: 1;
     }
 }
