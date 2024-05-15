@@ -52,7 +52,7 @@ Follow these steps to set up the project locally:
     ```
 8. Run the migrations and seed the database (optional):
     ```bash
-    php artisan migrate --seed
+    php artisan migrate:fresh --seed
     ```
 9. Start the local development server:
     ```bash
