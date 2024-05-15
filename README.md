@@ -62,6 +62,7 @@ Follow these steps to set up the project locally:
 ## Additional Commands
 
 1. To install additional packages for modal support run:
+   
     ```bash
     composer require wire-elements/modal
     ```
