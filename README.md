@@ -62,13 +62,13 @@ Follow these steps to set up the project locally:
 ## Additional Commands
 
 To install additional packages for modal support and table components, run:
-
     ```bash
     composer require wire-elements/modal
     ```
 ## Modifying Components
 
-To modify the components.layout file, you can find it in the vendor/livewire/config directory. 
+To modify the components.layout file, you can find it in the vendor/livewire/config directory.
+
 Edit this file to change the layout as per your requirements.
 
 ## About Laravel
