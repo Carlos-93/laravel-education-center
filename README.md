@@ -43,14 +43,13 @@ Follow these steps to set up the project locally:
     ```bash
     cp .env.example .env
     ```
-    
     Update the database connection details in the `.env` file.
 
 7. Generate an application key:
     ```bash
     php artisan key:generate
     ```
-8. Run the migrations and seed the database (optional):
+8. If you need to reset and reseed the database, use:
     ```bash
     php artisan migrate:fresh --seed
     ```
@@ -59,6 +58,18 @@ Follow these steps to set up the project locally:
     php artisan serve
     ```
     Access the application at http://localhost:8000.
+
+## Additional Commands
+
+To install additional packages for modal support and table components, run:
+
+    ```bash
+    composer require wire-elements/modal
+    ```
+## Modifying Components
+
+To modify the components.layout file, you can find it in the vendor/livewire/config directory. 
+Edit this file to change the layout as per your requirements.
 
 ## About Laravel
 
