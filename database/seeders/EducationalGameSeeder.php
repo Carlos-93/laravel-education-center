@@ -18,6 +18,7 @@ class EducationalGameSeeder extends Seeder
             'description' => 'Learn how to play the piano with this virtual piano game',
             'url' => 'http://localhost:5174/',
             'subject_area' => 'Music',
+            'image' => 'images/piano-game.png',
         ]);
     }
 }
