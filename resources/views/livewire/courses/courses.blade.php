@@ -76,7 +76,7 @@
                                         <p class="font-medium">Imparted by:</p>
                                         @foreach ($course->teachers as $teacher)
                                             <span
-                                                class="bg-gray-200 text-gray-800 px-2 py-1 rounded-full text-xs truncate"
+                                                class="bg-gray-700 text-yellow-300 px-3 py-1 rounded-full text-xs truncate"
                                                 title="{{ $teacher->name }}">{{ $teacher->name }}</span>
                                         @endforeach
                                     </div>
@@ -104,11 +104,13 @@
                                 </x-slot>
                                 <x-slot name="content">
                                     <button wire:click="edit({{ $course->id }})"
-                                        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Edit
-                                        Course</button>
+                                        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Edit Course
+                                    </button>
                                     <button wire:click="destroy({{ $course->id }})"
-                                        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Delete
-                                        Course</button>
+                                        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        Delete Course
+                                    </button>
                                 </x-slot>
                             </x-dropdown>
                         </div>

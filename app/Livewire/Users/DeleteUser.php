@@ -7,22 +7,28 @@ use App\Models\User;
 
 class DeleteUser extends ModalComponent
 {
-    public int|User $user;
+    /** @var User|array */
+    public $users;
 
-    public function mount(User $user)
+    public function mount($users)
     {
-        $this->user = $user;
+        // Convertir la entrada a una colección de usuarios si no lo es
+        $this->users = is_array($users) ? User::findMany($users) : collect([User::find($users)]);
     }
 
     public function delete()
     {
-        $this->user->delete();
+        foreach ($this->users as $user) {
+            $user->delete();
+        }
+
         $this->closeModal();
-        session()->flash('message', 'User deleted successfully');
+        session()->flash('message', 'User(s) deleted successfully.');
         return redirect()->route('user-management');
     }
+
     public function render()
     {
-        return view('livewire.users.delete-user');
+        return view('livewire.users.delete-user', ['users' => $this->users]);
     }
 }

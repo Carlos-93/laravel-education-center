@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             TeacherCourseSeeder::class,
             CourseEnrollmentSeeder::class,
             ResourcesSeeder::class,
+            EducationalGameSeeder::class,
         ]);
     }
 }

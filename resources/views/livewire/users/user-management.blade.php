@@ -4,15 +4,10 @@
     <div class="mx-auto sm:px-6 lg:px-20 flex flex-col gap-5 overflow-hidden">
 
         <!-- Create user -->
-        <div class="flex justify-between w-full">
-            <!-- Search input -->
-            <input type="search" wire:model="search" placeholder="Search users..."
-                class="w-1/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500">
-
+        <div class="flex justify-end items-center w-full">
             @if (session('message'))
                 @livewire('alert-message')
             @endif
-
             <x-button-add wire:click="$dispatch('openModal', {component: 'users.create-user'})">
                 Add User
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -28,6 +23,6 @@
         </div>
 
         <!-- Users list -->
-        @livewire('table', ['users' => $users])
+        <livewire:users-table/>            
     </div>
 </div>

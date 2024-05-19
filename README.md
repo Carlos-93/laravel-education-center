@@ -1,5 +1,4 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
@@ -43,22 +42,43 @@ Follow these steps to set up the project locally:
     ```bash
     cp .env.example .env
     ```
-    
     Update the database connection details in the `.env` file.
 
 7. Generate an application key:
     ```bash
     php artisan key:generate
     ```
-8. Run the migrations and seed the database (optional):
+8. If you need to reset and reseed the database, use:
     ```bash
-    php artisan migrate --seed
+    php artisan migrate:fresh --seed
     ```
 9. Start the local development server:
     ```bash
     php artisan serve
     ```
     Access the application at http://localhost:8000.
+
+## Additional Commands
+
+1. To install additional packages for modal support, livewire-tables and storage:link run:
+   
+    ```bash
+    composer require wire-elements/modal
+    ```
+
+    ```bash
+    composer require ramonrietdijk/livewire-tables
+    ```
+
+    ```bash
+    php artisan storage:link
+    ```
+
+## Modifying Components
+
+To modify the components.layout file, you can find it in the vendor/livewire/config directory.
+
+Edit this file to change the layout as per your requirements.
 
 ## About Laravel
 
