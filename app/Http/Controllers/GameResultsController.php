@@ -15,15 +15,25 @@ class GameResultsController extends Controller
         $validated = $request->validate([
             'score' => 'required|numeric',
             'user_id' => 'required|numeric',
+            'time' => 'required|numeric',
         ]);
 
         $score = $validated['score'];
         $userId = $validated['user_id'];
+        $time = $validated['time'];
+
+        $existingSession = GameSession::where('user_id', $userId)
+            ->where('game_id', 1)
+            ->first();
+
+        if ($existingSession) {
+            return response()->json(['message' => 'Game result already saved']);
+        }
 
         $gameSession = GameSession::create([
             'user_id' => $userId,
             'game_id' => 1,
-            'start_time' => Carbon::now(),
+            'start_time' => Carbon::now()->subSeconds($time),
             'end_time' => Carbon::now(),
         ]);
 

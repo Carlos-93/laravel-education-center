@@ -15,7 +15,7 @@ class EducationalGameSeeder extends Seeder
         DB::table('educational_games')->insert([
             'title' => 'Virtual Piano Game',
             'description' => 'Learn how to play the piano with this virtual piano game',
-            'url' => 'http://localhost:5173/',
+            'url' => 'http://localhost:5174/',
             'subject_area' => 'Music',
             'image' => 'images/piano-game.png',
         ]);

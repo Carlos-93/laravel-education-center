@@ -21,7 +21,6 @@
                 </svg>
             </x-button-add>
         </div>
-
         <!-- Users list -->
         <livewire:users-table/>            
     </div>

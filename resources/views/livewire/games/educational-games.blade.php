@@ -11,7 +11,7 @@
                                 @if ($game->image)
                                     <div class="flex justify-center items-center my-10">
                                         <img src="{{ asset($game->image) }}" alt="{{ $game->title }}"
-                                            class="w-[30rem] h-[13rem] rounded-xl hover-zoom">
+                                            class="w-full max-w-xs md:max-w-md lg:max-w-lg h-[13rem] rounded-xl hover-zoom">
                                     </div>
                                 @endif
                                 <h2 class="text-xl font-semibold mb-2 truncate">{{ $game->title }}</h2>

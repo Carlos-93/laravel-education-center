@@ -37,18 +37,18 @@ class TeacherCourseSeeder extends Seeder
 
             // Carmen Quintás enseña 2 cursos
             ['user_id' => 8, 'course_id' => 2, 'created_at' => now(), 'updated_at' => now()],
-            ['user_id' => 8, 'course_id' => 6, 'created_at' => now(), 'updated_at' => now()],
+            ['user_id' => 8, 'course_id' => 3, 'created_at' => now(), 'updated_at' => now()],
 
             // Judith Lopez enseña 2 cursos
+            ['user_id' => 9, 'course_id' => 4, 'created_at' => now(), 'updated_at' => now()],
             ['user_id' => 9, 'course_id' => 5, 'created_at' => now(), 'updated_at' => now()],
-            ['user_id' => 9, 'course_id' => 6, 'created_at' => now(), 'updated_at' => now()],
 
             // Marta Sánchez enseña 1 curso
-            ['user_id' => 10, 'course_id' => 3, 'created_at' => now(), 'updated_at' => now()],
+            ['user_id' => 10, 'course_id' => 6, 'created_at' => now(), 'updated_at' => now()],
 
             // Jordi Sánchez enseña 2 cursos
-            ['user_id' => 11, 'course_id' => 3, 'created_at' => now(), 'updated_at' => now()],
-            ['user_id' => 11, 'course_id' => 4, 'created_at' => now(), 'updated_at' => now()],
+            ['user_id' => 11, 'course_id' => 7, 'created_at' => now(), 'updated_at' => now()],
+            ['user_id' => 11, 'course_id' => 8, 'created_at' => now(), 'updated_at' => now()],
         ];
 
         DB::table('teachers')->insert($teacher_courses);
