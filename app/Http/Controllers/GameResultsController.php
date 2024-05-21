@@ -6,11 +6,10 @@ use App\Models\GameScore;
 use App\Models\GameSession;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class GameResultsController extends Controller
 {
-    
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -32,7 +31,7 @@ class GameResultsController extends Controller
             'session_id' => $gameSession->id,
             'score' => $score,
         ]);
-        
+
         return response()->json(['message' => 'Game result saved']);
     }
 }

@@ -20,5 +20,13 @@ class EducationalGameSeeder extends Seeder
             'subject_area' => 'Music',
             'image' => 'images/piano-game.png',
         ]);
+
+        DB::table('educational_games')->insert([
+            'title' => 'Physics Hangman Game',
+            'description' => 'Learn physics terms with this hangman game',
+            'url' => 'http://localhost:5175/',
+            'subject_area' => 'Physics',
+            'image' => 'images/hangman-game.png',
+        ]);
     }
 }
