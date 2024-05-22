@@ -1,8 +1,8 @@
 @section('title', 'Staff Chat')
 
-<div class="flex justify-center py-20">
-    <div id="chatContainer" class="bg-gray-800 p-6 rounded-xl w-full max-w-5xl overflow-auto h-[75vh]">
-        <div class="flex flex-col">
+<div class="flex justify-center py-20 h-[83vh]">
+    <div id="chatContainer" class="bg-gray-800 pt-6 px-6 rounded-xl w-full max-w-5xl flex flex-col">
+        <div class="flex flex-col flex-grow overflow-auto mb-4">
             @foreach ($messages as $message)
                 <div
                     class="flex items-end {{ $message['user_id'] === Auth::id() ? 'justify-end' : 'justify-start' }} mb-4">
@@ -25,24 +25,17 @@
                     </div>
                 </div>
             @endforeach
-            <hr>
         </div>
-        <section class="flex justify-center items-center mt-4">
+        <hr>
+        <section class="flex justify-center items-center">
             <form wire:submit.prevent="sendMessage" class="p-4 flex w-full max-w-2xl">
                 <input type="text" wire:model="newMessage" placeholder="Type your message here..."
                     class="flex-grow focus:border-yellow-400 focus:ring-yellow-400 rounded-lg" required>
                 <button type="submit"
-                    class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-4 rounded-lg ml-4 transition-all ease-in-on duration-300">
+                    class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-4 rounded-lg ml-4 transition-all ease-in-out duration-300">
                     Send Message
                 </button>
             </form>
         </section>
     </div>
 </div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const chatContainer = document.getElementById('chatContainer');
-        chatContainer.scrollTop = chatContainer.scrollHeight;
-    });
-</script>
