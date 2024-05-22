@@ -5,6 +5,7 @@ use App\Livewire\Users\UserManagement;
 use App\Livewire\Courses\Courses;
 use App\Livewire\Courses\CourseDetails;
 use App\Livewire\Games\EducationalGames;
+use App\Livewire\StaffChat;
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,7 +38,7 @@ Route::middleware([
     Route::get('/grades')->name('grades');
 
     // Messages Staff Room
-    Route::get('/staff-room')->name('staff-room');
+    Route::get('/staff-chat', StaffChat::class)->name('staff-chat');
 
     // User Management
     Route::get('/user-management', UserManagement::class)->name('user-management');

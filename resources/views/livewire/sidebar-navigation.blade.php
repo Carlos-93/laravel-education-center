@@ -44,11 +44,11 @@
                     </li>
                 </a>
                 @if (auth()->user()->isAdmin() || auth()->user()->isTeacher())
-                    <a href="{{ route('staff-room') }}"
-                        class="{{ request()->routeIs('staff-room') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
+                    <a href="{{ route('staff-chat') }}"
+                        class="{{ request()->routeIs('staff-chat') ? 'text-yellow-400 white-gradient' : 'text-white hover:text-yellow-400' }} transform hover:pl-20 ease-in duration-200 w-full gradient-box flex items-center pl-14">
                         <li class="py-3 flex items-center gap-2">
                             <i class="bx bxs-conversation text-2xl"></i>
-                            <span>Staff Room</span>
+                            <span>Staff Chat</span>
                         </li>
                     </a>
                 @endif
