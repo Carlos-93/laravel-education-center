@@ -1,7 +1,7 @@
 @section('title', 'Staff Chat')
 
 <div class="flex justify-center py-20 h-[83vh]">
-    <div id="chatContainer" class="bg-gray-800 pt-6 px-6 rounded-xl w-full max-w-5xl flex flex-col">
+    <div id="chatContainer" class="bg-gray-900 pt-6 px-6 rounded-xl w-full max-w-5xl flex flex-col">
         <div class="flex flex-col flex-grow overflow-auto mb-4">
             @foreach ($messages as $message)
                 <div
@@ -10,7 +10,7 @@
                         class="flex flex-col space-y-2 text-xs max-w-xs mx-2 {{ $message['user_id'] === Auth::id() ? 'order-1 items-end' : 'order-2 items-start' }}">
                         <div>
                             <span
-                                class="flex flex-col gap-1 px-2.5 py-1.5 rounded-lg inline-block {{ $message['user_id'] === Auth::id() ? 'bg-green-600 text-white' : 'bg-gray-300 text-gray-600' }}">
+                                class="flex flex-col gap-1 px-2.5 py-1.5 rounded-lg inline-block {{ $message['user_id'] === Auth::id() ? 'bg-green-600 text-white' : 'bg-gray-700 text-white' }}">
                                 <strong>{{ \App\Models\User::find($message['user_id'])->name }}:</strong>
                                 <span class="flex gap-5 justify-between items-center font-medium">
                                     {{ $message['message'] }}
