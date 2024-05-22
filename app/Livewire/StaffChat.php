@@ -33,6 +33,7 @@ class StaffChat extends Component
 
         $this->newMessage = '';
 
+        redirect()->to('/staff-chat');
     }
 
     public function render()

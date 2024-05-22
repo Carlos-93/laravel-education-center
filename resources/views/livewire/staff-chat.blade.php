@@ -1,16 +1,13 @@
 @section('title', 'Staff Chat')
 
 <div class="flex justify-center py-20 h-[83vh]">
-    <div id="chatContainer" class="bg-gray-900 pt-6 px-6 rounded-xl w-full max-w-5xl flex flex-col">
-        <div class="flex flex-col flex-grow overflow-auto mb-4">
+    <div class="bg-gray-900 pt-7 px-6 rounded-xl w-full max-w-5xl flex flex-col">
+        <div id="chatContainer" class="flex flex-col flex-grow overflow-auto mb-4">
             @foreach ($messages as $message)
-                <div
-                    class="flex items-end {{ $message['user_id'] === Auth::id() ? 'justify-end' : 'justify-start' }} mb-4">
-                    <div
-                        class="flex flex-col space-y-2 text-xs max-w-xs mx-2 {{ $message['user_id'] === Auth::id() ? 'order-1 items-end' : 'order-2 items-start' }}">
+                <div class="flex items-end {{ $message['user_id'] === Auth::id() ? 'justify-end' : 'justify-start' }} mb-4">
+                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 {{ $message['user_id'] === Auth::id() ? 'order-1 items-end' : 'order-2 items-start' }}">
                         <div>
-                            <span
-                                class="flex flex-col gap-1 px-2.5 py-1.5 rounded-lg inline-block {{ $message['user_id'] === Auth::id() ? 'bg-green-600 text-white' : 'bg-gray-700 text-white' }}">
+                            <span class="flex flex-col gap-1 px-2.5 py-1.5 rounded-lg inline-block {{ $message['user_id'] === Auth::id() ? 'bg-green-600 text-white' : 'bg-gray-700 text-white' }}">
                                 <strong>{{ \App\Models\User::find($message['user_id'])->name }}:</strong>
                                 <span class="flex gap-5 justify-between items-center font-medium">
                                     {{ $message['message'] }}
@@ -20,15 +17,14 @@
                                 </span>
                             </span>
                         </div>
-                        <small
-                            class="text-gray-300">{{ \Carbon\Carbon::parse($message['created_at'])->diffForHumans() }}</small>
+                        <small class="text-gray-300">{{ \Carbon\Carbon::parse($message['created_at'])->diffForHumans() }}</small>
                     </div>
                 </div>
             @endforeach
         </div>
         <hr>
         <section class="flex justify-center items-center">
-            <form wire:submit.prevent="sendMessage" class="p-4 flex w-full max-w-2xl">
+            <form wire:submit.prevent="sendMessage" id="sendMessage" class="p-4 flex w-full max-w-2xl">
                 <input type="text" wire:model="newMessage" placeholder="Type your message here..."
                     class="flex-grow focus:border-yellow-400 focus:ring-yellow-400 rounded-lg" required>
                 <button type="submit"
@@ -39,3 +35,23 @@
         </section>
     </div>
 </div>
+
+<script>
+    function scrollDown() {
+        var chatContainer = document.getElementById('chatContainer');
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    window.document.addEventListener('DOMContentLoaded', () => {
+        scrollDown();
+
+        const sendMessage = document.getElementById('sendMessage');
+        sendMessage.addEventListener('submit', () => {
+            scrollDown();
+        });
+    });
+
+    window.addEventListener('messageSent', event => {
+        scrollDown();
+    });
+</script>

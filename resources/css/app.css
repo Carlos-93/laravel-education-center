@@ -2,8 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-[x-cloak] {
-    display: none;
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+select:focus {
+    outline: none !important;
+}
+
+textarea:focus {
+    outline: none !important;
 }
 
 html::-webkit-scrollbar,
@@ -20,6 +34,10 @@ body {
 textarea {
     outline: none;
     resize: none;
+}
+
+[x-cloak] {
+    display: none;
 }
 
 .bg-hero-auth {
