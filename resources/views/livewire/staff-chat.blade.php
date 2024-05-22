@@ -1,7 +1,7 @@
 @section('title', 'Staff Chat')
 
 <div class="flex justify-center py-20">
-    <div id="chatContainer" class="bg-white p-6 rounded-xl w-full max-w-5xl overflow-auto h-[75vh]">
+    <div id="chatContainer" class="bg-gray-800 p-6 rounded-xl w-full max-w-5xl overflow-auto h-[75vh]">
         <div class="flex flex-col">
             @foreach ($messages as $message)
                 <div
@@ -12,16 +12,16 @@
                             <span
                                 class="flex flex-col gap-1 px-2.5 py-1.5 rounded-lg inline-block {{ $message['user_id'] === Auth::id() ? 'bg-green-600 text-white' : 'bg-gray-300 text-gray-600' }}">
                                 <strong>{{ \App\Models\User::find($message['user_id'])->name }}:</strong>
-                                <span class="flex gap-5 justify-between items-center">
+                                <span class="flex gap-5 justify-between items-center font-medium">
                                     {{ $message['message'] }}
                                     <span class="flex text-[10px]">
-                                        {{ \Carbon\Carbon::parse($message['created_at'])->format('H:i') }}
+                                        {{ \Carbon\Carbon::parse($message['created_at'])->format('H:i') }}h
                                     </span>
                                 </span>
                             </span>
                         </div>
                         <small
-                            class="text-gray-500">{{ \Carbon\Carbon::parse($message['created_at'])->diffForHumans() }}</small>
+                            class="text-gray-300">{{ \Carbon\Carbon::parse($message['created_at'])->diffForHumans() }}</small>
                     </div>
                 </div>
             @endforeach
@@ -42,7 +42,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        var chatContainer = document.getElementById('chatContainer');
+        const chatContainer = document.getElementById('chatContainer');
         chatContainer.scrollTop = chatContainer.scrollHeight;
     });
 </script>
