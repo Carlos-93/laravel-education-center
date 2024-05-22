@@ -6,7 +6,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# Comprehensive Educational System
+# Welcome to my Comprehensive Educational System
 
 This project involves the development of a comprehensive educational system incorporating a simplified CRM, focused on assisting teachers in efficiently managing, controlling, and communicating with their students, as well as in administering courses and evaluations.
 
