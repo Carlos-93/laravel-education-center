@@ -66,6 +66,18 @@ Follow these steps to set up the project locally:
     composer require wire-elements/modal
     ```
 
+2. To install additional package for ramonrietdijk-livewire-tables run:
+
+    ```bash
+    composer require ramonrietdijk/livewire-tables
+    ```
+
+3. To install additional package for storage run:
+
+    ```bash
+    php artisan storage:link
+    ```
+
 ## Modifying Components
 
 To modify the components.layout file, you can find it in the vendor/livewire/config directory.
