@@ -60,15 +60,19 @@ Follow these steps to set up the project locally:
 
 ## Additional Commands
 
-1. To install additional packages for modal support, livewire-tables and storage:link run:
+1. To install additional packages for modal support run:
    
     ```bash
     composer require wire-elements/modal
     ```
 
+2. To install additional package for ramonrietdijk-livewire-tables run:
+
     ```bash
     composer require ramonrietdijk/livewire-tables
     ```
+
+3. To install additional package for storage run:
 
     ```bash
     php artisan storage:link
