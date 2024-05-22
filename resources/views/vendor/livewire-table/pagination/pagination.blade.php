@@ -43,13 +43,13 @@
 
             {{-- Desktop --}}
             <div class="hidden lg:flex-1 lg:flex lg:items-center lg:justify-between">
-                <p class="text-sm text-neutral-800 dark:text-neutral-400">
+                <p class="text-sm text-white dark:text-neutral-400">
                     <span>{!! __('Showing') !!}</span>
-                    <span class="font-bold">{{ $paginator->firstItem() }}</span>
+                    <span class="font-bold text-yellow-400">{{ $paginator->firstItem() }}</span>
                     <span>{!! __('to') !!}</span>
-                    <span class="font-bold">{{ $paginator->lastItem() }}</span>
+                    <span class="font-bold text-yellow-400">{{ $paginator->lastItem() }}</span>
                     <span>{!! __('of') !!}</span>
-                    <span class="font-bold">{{ $paginator->total() }}</span>
+                    <span class="font-bold text-yellow-400">{{ $paginator->total() }}</span>
                     <span>{!! __('results') !!}</span>
                 </p>
 

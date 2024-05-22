@@ -15,4 +15,14 @@ class GameSession extends Model
         'start_time',
         'end_time',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function scores()
+    {
+        return $this->hasMany(GameScore::class, 'session_id');
+    }
 }

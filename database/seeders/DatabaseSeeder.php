@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CourseEnrollmentSeeder::class,
             ResourcesSeeder::class,
             EducationalGameSeeder::class,
+            MessageSeeder::class,
         ]);
     }
 }

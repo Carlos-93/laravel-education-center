@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+*::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 html,
 body {
     margin: 0;
@@ -18,17 +27,6 @@ select:focus {
 
 textarea:focus {
     outline: none !important;
-}
-
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-    display: none;
-}
-
-html,
-body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
 }
 
 textarea {

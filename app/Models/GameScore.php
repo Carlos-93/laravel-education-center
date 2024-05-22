@@ -13,4 +13,9 @@ class GameScore extends Model
         'session_id',
         'score',
     ];
+
+    public function session()
+    {
+        return $this->belongsTo(GameSession::class);
+    }
 }
