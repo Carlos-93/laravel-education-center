@@ -70,7 +70,7 @@ textarea {
 }
 
 .hover-container:hover .hover-zoom {
-    transform: scale(1.05);
+    transform: scale(1.2);
     transition: transform 0.5s ease-in-out;
 }
 

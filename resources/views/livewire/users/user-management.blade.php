@@ -2,7 +2,6 @@
 
 <div class="py-12">
     <div class="mx-auto sm:px-6 lg:px-20 flex flex-col gap-5 overflow-hidden">
-
         <!-- Create user -->
         <div class="flex justify-end items-center w-full">
             @if (session('message'))
@@ -22,6 +21,6 @@
             </x-button-add>
         </div>
         <!-- Users list -->
-        <livewire:users-table/>            
+        <livewire:users-table />
     </div>
 </div>

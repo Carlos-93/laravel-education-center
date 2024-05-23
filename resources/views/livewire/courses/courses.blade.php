@@ -8,54 +8,11 @@
         <!-- Courses Teacher and Admin -->
         @if (Auth::user()->isTeacher() || Auth::user()->isAdmin())
             <div class="flex justify-end gap-4">
-                <x-button-add wire:click="create">
+                <x-button-add wire:click="$dispatch('openModal', {component: 'courses.create-course'})">
                     <span>Add Course</span>
                     <i class='bx bxs-graduation text-2xl'></i>
                 </x-button-add>
             </div>
-
-            @if ($isModalOpen)
-                <div class="p-6">
-                    <form
-                        @if ($isUpdating) wire:submit.prevent="update"
-                        @else 
-                            wire:submit.prevent="store" @endif
-                        class="space-y-4">
-                        <input type="text" wire:model="title" placeholder="Title"
-                            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
-                        @error('title')
-                            <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                        <textarea wire:model="description" placeholder="Description"
-                            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"></textarea>
-                        @error('description')
-                            <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                        <select wire:model="teachers" multiple
-                            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
-                            @foreach ($allTeachers as $teacher)
-                                <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
-                            @endforeach
-                        </select>
-                        @error('teachers')
-                            <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                        <div class="flex justify-end space-x-4">
-                            <button type="submit"
-                                class="px-6 py-2 bg-blue85 text-white rounded-md hover:bg-blue85/70 focus:outline-none focus:bg-blue-600">
-                                @if ($isUpdating)
-                                    Update Course
-                                @else
-                                    Create Course
-                                @endif
-                            </button>
-                            <button type="button" wire:click="closeModal()"
-                                class="px-6 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 focus:outline-none focus:bg-gray-400">Cancel</button>
-                        </div>
-                    </form>
-                </div>
-            @endif
-
             <div class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4">
                 @foreach ($allCourses as $course)
                     <div class="relative hover-container overflow-hidden rounded-lg shadow-lg">
@@ -103,11 +60,11 @@
                                     </button>
                                 </x-slot>
                                 <x-slot name="content">
-                                    <button wire:click="edit({{ $course->id }})"
+                                    <button wire:click="$dispatch('openModal', {component: 'courses.update-course'})"
                                         class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Edit Course
+                                        Update Course
                                     </button>
-                                    <button wire:click="destroy({{ $course->id }})"
+                                    <button wire:click="$dispatch('openModal', {component: 'courses.delete-course'})"
                                         class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                         Delete Course
                                     </button>
@@ -117,7 +74,6 @@
                     </div>
                 @endforeach
             </div>
-
             <!-- Courses Student -->
         @else
             <h2 class="text-xl font-semibold">Enrolled Courses</h2>
