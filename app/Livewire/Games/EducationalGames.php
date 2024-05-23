@@ -17,6 +17,16 @@ class EducationalGames extends Component
         $this->scores = GameScore::with('session')->get();
     }
 
+    public function deleteScore($scoreId)
+    {
+        $score = GameScore::find($scoreId);
+
+        if ($score) {
+            $score->delete();
+            $this->scores = GameScore::with('session')->get();
+        }
+    }
+
     public function render()
     {
         return view('livewire.games.educational-games');

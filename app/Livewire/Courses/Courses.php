@@ -12,11 +12,11 @@ class Courses extends Component
     public $allCourses, $enrolledCourses, $notEnrolledCourses;
     public $allTeachers;
     public $courseId, $title, $description, $teachers = [];
-    public $isModalOpen = false;
-    public $isUpdating = false;
+    public $userName;
 
     public function mount()
     {
+        $this->userName = auth()->user()->name;
         $this->allCourses = Course::all();
         $this->allTeachers = User::where('role', 'teacher')->get();
 
@@ -25,85 +25,6 @@ class Courses extends Component
 
         $this->enrolledCourses = $this->allCourses->whereIn('id', $enrolledCourseIds);
         $this->notEnrolledCourses = $this->allCourses->whereNotIn('id', $enrolledCourseIds);
-    }
-    
-    public function openModal()
-    {
-        $this->isModalOpen = true;
-    }
-    
-    public function closeModal()
-    {
-        $this->isModalOpen = false;
-    }
-
-    public function create()
-    {
-        $this->openModal();
-    }
-
-    public function store()
-    {
-        $this->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'teachers' => 'required'
-        ]);
-
-        $course = Course::create([
-            'title' => $this->title,
-            'description' => $this->description,
-        ]);
-
-        $course->teachers()->attach($this->teachers);        
-
-        session()->flash('message', 'Course created successfully');
-
-        $this->closeModal();
-        $this->reset(['title', 'description', 'teachers']);
-        $this->mount();
-    }
-
-    public function edit($courseId)
-    {
-        $course = Course::findOrFail($courseId);
-        $this->courseId = $courseId;
-        $this->title = $course->title;
-        $this->description = $course->description;
-        $this->teachers = $course->teachers->pluck('id')->toArray();
-        $this->isModalOpen = true;
-        $this->isUpdating = true;
-    }
-
-    public function update()
-    {
-        $course = Course::findOrFail($this->courseId);
-        
-        $this->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'teachers' => 'required'
-        ]);
-
-        $course->update([
-            'title' => $this->title,
-            'description' => $this->description,
-        ]);
-        
-        $course->teachers()->sync($this->teachers);
-
-        session()->flash('message', 'Course updated successfully');
-        
-        $this->reset(['title', 'description', 'teachers', 'isModalOpen', 'isUpdating']);
-        $this->mount();
-    }
-    
-    public function destroy($courseId)
-    {
-        Course::destroy($courseId);
-
-        session()->flash('message', 'Course deleted successfully');        
-        return redirect()->route('courses');
     }
 
     public function enroll($courseId)
@@ -130,6 +51,6 @@ class Courses extends Component
 
     public function render()
     {
-        return view('livewire.courses.courses');
+        return view('livewire.courses.courses', ['userName' => $this->userName]);
     }
 }

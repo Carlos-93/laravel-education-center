@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 class GameResultsController extends Controller
 {
-
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -27,21 +26,36 @@ class GameResultsController extends Controller
             ->first();
 
         if ($existingSession) {
-            return response()->json(['message' => 'Game result already saved']);
+            $existingSession->start_time = Carbon::now()->subSeconds($time);
+            $existingSession->end_time = Carbon::now();
+            $existingSession->save();
+
+            $existingScore = GameScore::where('session_id', $existingSession->id)->first();
+
+            if ($existingScore) {
+                $existingScore->score = $score;
+                $existingScore->save();
+                return response()->json(['message' => 'Game result updated']);
+            } else {
+                GameScore::create([
+                    'session_id' => $existingSession->id,
+                    'score' => $score,
+                ]);
+                return response()->json(['message' => 'Game result saved']);
+            }
+        } else {
+            $gameSession = GameSession::create([
+                'user_id' => $userId,
+                'game_id' => 1,
+                'start_time' => Carbon::now()->subSeconds($time),
+                'end_time' => Carbon::now(),
+            ]);
+            GameScore::create([
+                'session_id' => $gameSession->id,
+                'score' => $score,
+            ]);
+            return response()->json(['message' => 'Game result saved']);
         }
-
-        $gameSession = GameSession::create([
-            'user_id' => $userId,
-            'game_id' => 1,
-            'start_time' => Carbon::now()->subSeconds($time),
-            'end_time' => Carbon::now(),
-        ]);
-
-        GameScore::create([
-            'session_id' => $gameSession->id,
-            'score' => $score,
-        ]);
-
-        return response()->json(['message' => 'Game result saved']);
+        return response()->json(['message' => 'Error updating game result'], 500);
     }
 }

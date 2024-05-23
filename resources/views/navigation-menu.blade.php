@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="sticky top-0 backdrop-blur-xl bg-white/40">
+<nav x-data="{ open: false }" class="sticky top-0 backdrop-blur-xl bg-white/40 z-50">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto px-6 lg:px-20">
         <div class="flex justify-between py-10 justify-center items-center">

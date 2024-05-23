@@ -60,11 +60,13 @@
                                     </button>
                                 </x-slot>
                                 <x-slot name="content">
-                                    <button wire:click="$dispatch('openModal', {component: 'courses.update-course'})"
+                                    <button
+                                        wire:click="$dispatch('openModal', {component: 'courses.update-course', arguments: { courseId: {{ $course->id }} }})"
                                         class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                         Update Course
                                     </button>
-                                    <button wire:click="$dispatch('openModal', {component: 'courses.delete-course'})"
+                                    <button
+                                        wire:click="$dispatch('openModal', {component: 'courses.delete-course', arguments: { courseId: {{ $course->id }} }})"
                                         class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                         Delete Course
                                     </button>
@@ -74,34 +76,43 @@
                     </div>
                 @endforeach
             </div>
-            <!-- Courses Student -->
         @else
-            <h2 class="text-xl font-semibold">Enrolled Courses</h2>
+            <!-- Enrolled Courses Student -->
+            <h2 class="text-xl font-semibold text-yellow-400">Enrolled Courses</h2>
             @if ($enrolledCourses->isEmpty())
-                <p class="text-gray-600 mb-8">You are not enrolled in any courses. Enroll in a course to get started!
+                <p class="text-white mb-8">
+                    {{ $userName }}, you are not enrolled in any courses. Enroll in a course to get started!
                 </p>
             @else
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-12">
                     @foreach ($enrolledCourses as $course)
-                        <div class="relative">
+                        <div class="relative z-10 hover-container overflow-hidden rounded-lg shadow-lg">
+                            <button type="button" wire:click="unenroll({{ $course->id }})"
+                                class="absolute top-0 right-0 m-2 text-sm hover:font-semibold bg-yellow-400 px-3 py-1 rounded-lg w-36 transition-all ease-in-on duration-300">
+                                Unenroll Course
+                            </button>
                             <a href="{{ route('courses.course-details', ['courseId' => $course->id]) }}"
                                 title="{{ $course->title }}">
-                                <div class="bg-white rounded-lg shadow-lg p-6">
+                                <div class="bg-white p-6">
+                                    @if ($course->image)
+                                        <div class="flex justify-center items-center my-5">
+                                            <img src="{{ asset($course->image) }}" alt="{{ $course->title }}"
+                                                class="w-46 h-40 rounded-xl hover-zoom">
+                                        </div>
+                                    @endif
                                     <h2 class="text-xl font-semibold mb-2 truncate">{{ $course->title }}</h2>
                                     <p class="text-gray-600 truncate" title="{{ $course->description }}">
-                                        {{ $course->description }}</p>
-                                    <div class="flex mt-4 justify-between">
-                                        <div class="flex">
+                                        {{ $course->description }}
+                                    </p>
+                                    <div class="flex mt-4 items-center justify-between">
+                                        <div class="flex gap-3">
+                                            <p class="font-medium">Imparted by:</p>
                                             @foreach ($course->teachers as $teacher)
                                                 <span
-                                                    class="bg-gray-200 text-gray-800 px-2 py-1 rounded-full text-xs mr-2 truncate"
+                                                    class="bg-gray-700 text-yellow-300 px-3 py-1 rounded-full text-xs truncate"
                                                     title="{{ $teacher->name }}">{{ $teacher->name }}</span>
                                             @endforeach
                                         </div>
-                                        <a href="#">
-                                            <button type="button" wire:click="unenroll({{ $course->id }})"
-                                                class="text-sm text-black33 hover:text-black hover:font-semibold">Unenroll</button>
-                                        </a>
                                     </div>
                                 </div>
                             </a>
@@ -109,32 +120,41 @@
                     @endforeach
                 </div>
             @endif
-            <h2 class="text-xl font-semibold">Not Enrolled Courses</h2>
+            <!-- Not Enrolled Courses Student -->
+            <h2 class="text-xl font-semibold text-yellow-400">Not Enrolled Courses</h2>
             @if ($notEnrolledCourses->isEmpty())
-                <p class="text-gray-600 mb-8">You are enrolled in all available courses. Check back later for more
-                    courses!</p>
+                <p class="text-white mb-8">
+                    {{ $userName }}, you are enrolled in all available courses. Check back later for more courses!
+                </p>
             @else
                 <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
                     @foreach ($notEnrolledCourses as $course)
-                        <div class="relative">
-                            <a href="{{ route('courses.course-details', ['courseId' => $course->id]) }}"
-                                title="{{ $course->title }}">
-                                <div class="bg-white rounded-lg shadow-lg p-6">
+                        <div class="relative hover-container overflow-hidden rounded-lg shadow-lg">
+                            <button type="button" wire:click="enroll({{ $course->id }})"
+                                class="absolute top-0 right-0 m-2 text-sm hover:font-semibold bg-yellow-400 px-3 py-1 rounded-lg w-32 transition-all ease-in-on duration-300">
+                                Enroll Course
+                            </button>
+                            <a href="#" title="{{ $course->title }}">
+                                <div class="bg-white p-6">
+                                    @if ($course->image)
+                                        <div class="flex justify-center items-center my-5">
+                                            <img src="{{ asset($course->image) }}" alt="{{ $course->title }}"
+                                                class="w-46 h-40 rounded-xl hover-zoom">
+                                        </div>
+                                    @endif
                                     <h2 class="text-xl font-semibold mb-2 truncate">{{ $course->title }}</h2>
                                     <p class="text-gray-600 truncate" title="{{ $course->description }}">
-                                        {{ $course->description }}</p>
-                                    <div class="flex mt-4 justify-between">
-                                        <div class="flex">
+                                        {{ $course->description }}
+                                    </p>
+                                    <div class="flex mt-4 items-center justify-between">
+                                        <div class="flex gap-3">
+                                            <p class="font-medium">Imparted by:</p>
                                             @foreach ($course->teachers as $teacher)
                                                 <span
-                                                    class="bg-gray-200 text-gray-800 px-2 py-1 rounded-full text-xs mr-2 truncate"
+                                                    class="bg-gray-700 text-yellow-300 px-3 py-1 rounded-full text-xs truncate"
                                                     title="{{ $teacher->name }}">{{ $teacher->name }}</span>
                                             @endforeach
                                         </div>
-                                        <a href="#">
-                                            <button type="button" wire:click="enroll({{ $course->id }})"
-                                                class="text-sm text-black33 hover:text-black hover:font-semibold">Enroll</button>
-                                        </a>
                                     </div>
                                 </div>
                             </a>
