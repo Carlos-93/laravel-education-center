@@ -15,14 +15,16 @@ class GameResultsController extends Controller
             'score' => 'required|numeric',
             'user_id' => 'required|numeric',
             'time' => 'required|numeric',
+            'game_id' => 'required|numeric',
         ]);
 
         $score = $validated['score'];
         $userId = $validated['user_id'];
         $time = $validated['time'];
+        $gameId = $validated['game_id'];
 
         $existingSession = GameSession::where('user_id', $userId)
-            ->where('game_id', 1)
+            ->where('game_id', $gameId)
             ->first();
 
         if ($existingSession) {
@@ -46,7 +48,7 @@ class GameResultsController extends Controller
         } else {
             $gameSession = GameSession::create([
                 'user_id' => $userId,
-                'game_id' => 1,
+                'game_id' => $gameId,
                 'start_time' => Carbon::now()->subSeconds($time),
                 'end_time' => Carbon::now(),
             ]);
