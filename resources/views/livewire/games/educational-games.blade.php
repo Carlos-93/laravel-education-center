@@ -27,12 +27,13 @@
                 <table class="min-w-full bg-white shadow-lg">
                     <thead class="bg-yellow-400">
                         <tr>
-                            <th class="w-1/5 px-4 py-2 text-left border-b border-gray-300 text-center">User</th>
-                            <th class="w-1/5 px-4 py-2 text-left border-b border-gray-300 text-center">Game</th>
-                            <th class="w-1/5 px-4 py-2 text-left border-b border-gray-300 text-center">Score</th>
-                            <th class="w-1/5 px-4 py-2 text-left border-b border-gray-300 text-center">Date</th>
+                            <th class="w-1/5 px-4 py-3 text-left border-b border-gray-300 text-center">User</th>
+                            <th class="w-1/5 px-4 py-3 text-left border-b border-gray-300 text-center">Game</th>
+                            <th class="w-1/5 px-4 py-3 text-left border-b border-gray-300 text-center">Score</th>
+                            <th class="w-1/5 px-4 py-3 text-left border-b border-gray-300 text-center">Date</th>
+                            <th class="w-1/1 px-4 py-3 text-left border-b border-gray-300 text-center">Time</th>
                             @if (Auth::user()->role == 'admin')
-                                <th class="w-1/5 px-4 py-2 text-left border-b border-gray-300 text-center">Actions</th>
+                                <th class="w-1/5 px-4 py-3 text-left border-b border-gray-300 text-center">Actions</th>
                             @endif
                         </tr>
                     </thead>
@@ -43,32 +44,25 @@
                         @endphp
 
                         @foreach ($scores as $score)
-                            <tr class="bg-gray-100 border-b border-gray-200 hover:bg-blue-100 font-medium text-center">
-                                <td class="px-4 py-2 border-b border-gray-400">
+                            <tr class="bg-gray-100 border-b border-gray-200 hover:bg-blue-100 transition-all ease-in-out duration-300 font-medium text-center">
+                                <td class="px-4 py-3 border-b border-gray-400">
                                     {{ \App\Models\User::find($score->session->user_id)->name }}
                                 </td>
-                                <td class="px-4 py-2 border-b border-gray-400">
+                                <td class="px-4 py-3 border-b border-gray-400">
                                     {{ \App\Models\EducationalGame::find($score->session->game_id)->title }}
                                 </td>
-                                <td class="px-4 py-2 border-b border-gray-400">{{ $score->score }} Points</td>
-                                <td class="px-4 py-2 border-b border-gray-400">
+                                <td class="px-4 py-3 border-b border-gray-400">{{ $score->score }} Points</td>
+                                <td class="px-4 py-3 border-b border-gray-400">
                                     {{ \Carbon\Carbon::parse($score->session->end_time)->format('d/m/Y') }}
                                 </td>
+                                <td class="px-4 py-3 border-b border-gray-400">
+                                    {{ \Carbon\Carbon::parse($score->session->end_time)->format('H:i:s') }}
+                                </td>
                                 @if (Auth::user()->role == 'admin')
-                                    <td class="px-4 py-2 border-b border-gray-400">
+                                    <td class="px-4 py-3 border-b border-gray-400">
                                         <button wire:click="deleteScore({{ $score->id }})"
-                                            class="bg-red-500 text-white px-2 py-1 rounded">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M4 7l16 0" />
-                                                <path d="M10 11l0 6" />
-                                                <path d="M14 11l0 6" />
-                                                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                            </svg>
+                                            class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-300 text-white px-4 py-1.5 rounded">
+                                            Delete
                                         </button>
                                     </td>
                                 @endif
@@ -77,12 +71,13 @@
 
                         @for ($i = $currentRowCount; $i < $rowsToDisplay; $i++)
                             <tr class="bg-gray-100 border-b border-gray-200 hover:bg-blue-100 font-medium text-center">
-                                <td class="px-4 py-2 border-b border-gray-400">&nbsp;</td>
-                                <td class="px-4 py-2 border-b border-gray-400">&nbsp;</td>
-                                <td class="px-4 py-2 border-b border-gray-400">&nbsp;</td>
-                                <td class="px-4 py-2 border-b border-gray-400">&nbsp;</td>
+                                <td class="px-4 py-3 border-b border-gray-400">&nbsp;</td>
+                                <td class="px-4 py-3 border-b border-gray-400">&nbsp;</td>
+                                <td class="px-4 py-3 border-b border-gray-400">&nbsp;</td>
+                                <td class="px-4 py-3 border-b border-gray-400">&nbsp;</td>
+                                <td class="px-4 py-3 border-b border-gray-400">&nbsp;</td>
                                 @if (Auth::user()->role == 'admin')
-                                    <td class="px-4 py-2 border-b border-gray-400">&nbsp;</td>
+                                    <td class="px-4 py-3 border-b border-gray-400">&nbsp;</td>
                                 @endif
                             </tr>
                         @endfor
