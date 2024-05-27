@@ -27,5 +27,13 @@ class EducationalGameSeeder extends Seeder
             'subject_area' => 'Physics',
             'image' => 'images/hangman-game.png',
         ]);
+
+        DB::table('educational_games')->insert([
+            'title' => 'Simon Says Game',
+            'description' => 'Learn how to follow instructions with this Simon Says game',
+            'url' => 'http://localhost:5176/',
+            'subject_area' => 'General',
+            'image' => 'images/simon-says-game.png',
+        ]);
     }
 }
