@@ -20,8 +20,8 @@ class UsersTable extends LivewireTable
             Column::make('Role', 'role')->searchable()->sortable(),
             Column::make('Email', 'email')->searchable()->sortable(),
             Column::make(__('Actions'), function (Model $model): string {
-                return "<button class='' onclick=\"Livewire.dispatch('openModal', {component: 'users.update-user', arguments: {'users': " . $model->getKey() . "}})\">Edit</button>
-                    <button class='' onclick=\"Livewire.dispatch('openModal', {component: 'users.delete-user', arguments: {'users': " . $model->getKey() . "}})\">Delete</button>";
+                return "<button class='transition-all ease-in-out duration-300 bg-yellow-400 hover:bg-yellow-500 font-medium py-1.5 px-3 rounded' onclick=\"Livewire.dispatch('openModal', {component: 'users.update-user', arguments: {'users': " . $model->getKey() . "}})\">Edit</button>
+                    <button class='transition-all ease-in-out duration-300 bg-red-500 hover:bg-red-600 text-white font-medium py-1.5 px-3 rounded' onclick=\"Livewire.dispatch('openModal', {component: 'users.delete-user', arguments: {'users': " . $model->getKey() . "}})\">Delete</button>";
             })->clickable(false)
                 ->asHtml(),
         ];

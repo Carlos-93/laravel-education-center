@@ -44,7 +44,8 @@
                             $currentRowCount = $scores->count();
                         @endphp
                         @foreach ($scores as $score)
-                            <tr class="bg-gray-100 border-b border-gray-200 hover:bg-blue-100 transition-all ease-in-out duration-300 font-medium text-center">
+                            <tr
+                                class="bg-gray-100 border-b border-gray-200 hover:bg-blue-100 transition-all ease-in-out duration-300 font-medium text-center">
                                 <td class="table-cell px-4 py-3 border-b border-gray-400">
                                     {{ \App\Models\User::find($score->session->user_id)->name }}
                                 </td>
@@ -62,7 +63,7 @@
                                 @if (Auth::user()->role == 'admin')
                                     <td class="table-cell px-4 py-3 border-b border-gray-400">
                                         <button wire:click="deleteScore({{ $score->id }})"
-                                            class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-300 text-white px-4 py-1.5 rounded">
+                                            class="transition-all ease-in-out duration-300 bg-red-500 hover:bg-red-600 text-white font-medium py-1.5 px-3 rounded">
                                             Delete
                                         </button>
                                     </td>
@@ -71,7 +72,8 @@
                         @endforeach
 
                         @for ($i = $currentRowCount; $i < $rowsToDisplay; $i++)
-                            <tr class="bg-gray-100 border-b border-gray-200 hover:bg-blue-100 font-medium text-center transition-all ease-in-out duration-300">
+                            <tr
+                                class="bg-gray-100 border-b border-gray-200 hover:bg-blue-100 font-medium text-center transition-all ease-in-out duration-300">
                                 <td class="table-cell px-4 py-3 border-b border-gray-400">&nbsp;</td>
                                 <td class="table-cell px-4 py-3 border-b border-gray-400">&nbsp;</td>
                                 <td class="table-cell px-4 py-3 border-b border-gray-400">&nbsp;</td>
