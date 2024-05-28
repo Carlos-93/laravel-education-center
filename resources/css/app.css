@@ -2,6 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
+*::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+select:focus {
+    outline: none !important;
+}
+
+textarea:focus {
+    outline: none !important;
+}
+
+textarea {
+    outline: none;
+    resize: none;
+}
+
 [x-cloak] {
     display: none;
+}
+
+.bg-hero-auth {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/public/images/hero-auth.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.bg-hero-home {
+    background-image: url('/public/images/hero-home.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.bg-app {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/public/images/bg.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.white-gradient,
+.gradient-box:hover {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0));
+}
+
+.hover-zoom {
+    transition: transform 0.5s ease-in-out;
+}
+
+.hover-container:hover .hover-zoom {
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out;
+    filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.9));
+    transition: all 0.5s ease-in-out;
+}
+
+.hover-container .hover-zoom {
+    transition: transform 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+@keyframes opacity {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    20%,
+    80% {
+        opacity: 1;
+    }
 }
